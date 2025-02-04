@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Challenge Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { padding: 15px; font-size: 18px; cursor: pointer; margin-top: 20px; }
+        #challenge { font-size: 24px; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Random Activity Challenge</h1>
+    <p>Click the button to get a random challenge!</p>
+    <button onclick="generateChallenge()">Get Challenge</button>
+    <p id="challenge"></p>
+
+    <script>
+        function generateChallenge() {
+            const challenges = {
+                "Weird Food Combos": [
+                    "Try peanut butter and pickles!",
+                    "Eat a banana with ketchup!",
+                    "Dip fries in melted chocolate!"
+                ],
+                "Social Challenges": [
+                    "Give 10 people a high five!",
+                    "Compliment 5 strangers today!",
+                    "Start a conversation with someone new!"
+                ],
+                "Fitness Challenges": [
+                    "Do 20 push-ups!",
+                    "Hold a plank for 1 minute!",
+                    "Try 50 jumping jacks!"
+                ]
+            };
+
+            let categories = Object.keys(challenges);
+            let randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            let randomChallenge = challenges[randomCategory][Math.floor(Math.random() * challenges[randomCategory].length)];
+
+            document.getElementById("challenge").innerText = `${randomChallenge}`;
+        }
+    </script>
+
+</body>
+</html>
